@@ -27,7 +27,7 @@ job4j_cinema - сервис по покупке билетов в кинотеа
 - jcip-annotations 1.0
 - checkstyle-plugin 3.1.2
 
-Necessary environment:
+Требования к окружению:
 - Java 17
 - Maven 3.9.3
 - PostgreSQL 16
