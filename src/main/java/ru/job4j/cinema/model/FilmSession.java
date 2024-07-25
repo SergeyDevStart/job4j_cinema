@@ -1,6 +1,7 @@
 package ru.job4j.cinema.model;
 
 import java.time.LocalDateTime;
+import java.util.Map;
 import java.util.Objects;
 
 public class FilmSession {
@@ -10,10 +11,17 @@ public class FilmSession {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
     private int price;
+    public static final Map<String, String> COLUMN_MAPPING = Map.of(
+            "id", "id",
+            "film_id", "filmId",
+            "halls_id", "hallId",
+            "start_time", "start_time",
+            "end_time", "end_time",
+            "price", "price"
+    );
 
-    public FilmSession(Integer id, Integer filmId, Integer hallId,
+    public FilmSession(Integer filmId, Integer hallId,
                        LocalDateTime startTime, LocalDateTime endTime, int price) {
-        this.id = id;
         this.filmId = filmId;
         this.hallId = hallId;
         this.startTime = startTime;

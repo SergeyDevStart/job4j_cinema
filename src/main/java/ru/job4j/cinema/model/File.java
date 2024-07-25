@@ -7,8 +7,7 @@ public class File {
     private String name;
     private String path;
 
-    public File(Integer id, String name, String path) {
-        this.id = id;
+    public File(String name, String path) {
         this.name = name;
         this.path = path;
     }

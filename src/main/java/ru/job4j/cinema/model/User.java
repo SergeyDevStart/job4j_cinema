@@ -1,5 +1,6 @@
 package ru.job4j.cinema.model;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class User {
@@ -7,9 +8,14 @@ public class User {
     private String fullName;
     private String email;
     private String password;
+    public static final Map<String, String> COLUMN_MAPPING = Map.of(
+            "id", "id",
+            "full_name", "fullName",
+            "email", "email",
+            "password", "password"
+    );
 
-    public User(Integer id, String fullName, String email, String password) {
-        this.id = id;
+    public User(String fullName, String email, String password) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;

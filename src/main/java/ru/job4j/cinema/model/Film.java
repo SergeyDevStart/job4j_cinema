@@ -1,5 +1,6 @@
 package ru.job4j.cinema.model;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class Film {
@@ -11,69 +12,26 @@ public class Film {
     private int minimalAge;
     private int durationInMinutes;
     private Integer fileId;
+    public static final Map<String, String> COLUMN_MAPPING = Map.of(
+            "id", "id",
+            "name", "name",
+            "description", "description",
+            "year", "year",
+            "genre_id", "genreId",
+            "minimal_age", "minimalAge",
+            "duration_in_minutes", "durationInMinutes",
+            "file_id", "fileId"
+    );
 
-    public static class FilmBuilder {
-        private Integer id;
-        private String name;
-        private String description;
-        private int year;
-        private Integer genreId;
-        private int minimalAge;
-        private int durationInMinutes;
-        private Integer fileId;
-
-        public FilmBuilder buildId(Integer id) {
-            this.id = id;
-            return this;
-        }
-
-        public FilmBuilder buildName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public FilmBuilder buildDescription(String description) {
-            this.description = description;
-            return this;
-        }
-
-        public FilmBuilder buildYear(int year) {
-            this.year = year;
-            return this;
-        }
-
-        public FilmBuilder buildGenreId(Integer genreId) {
-            this.genreId = genreId;
-            return this;
-        }
-
-        public FilmBuilder buildMinimalAge(int minimalAge) {
-            this.minimalAge = minimalAge;
-            return this;
-        }
-
-        public FilmBuilder buildDurationInMinutes(int durationInMinutes) {
-            this.durationInMinutes = durationInMinutes;
-            return this;
-        }
-
-        public FilmBuilder buildFileId(Integer fileId) {
-            this.fileId = fileId;
-            return this;
-        }
-
-        public Film build() {
-            Film film = new Film();
-            film.id = id;
-            film.name = name;
-            film.description = description;
-            film.year = year;
-            film.genreId = genreId;
-            film.minimalAge = minimalAge;
-            film.durationInMinutes = durationInMinutes;
-            film.fileId = fileId;
-            return film;
-        }
+    public Film(String name, String description, int year, Integer genreId,
+                int minimalAge, int durationInMinutes, Integer fileId) {
+        this.name = name;
+        this.description = description;
+        this.year = year;
+        this.genreId = genreId;
+        this.minimalAge = minimalAge;
+        this.durationInMinutes = durationInMinutes;
+        this.fileId = fileId;
     }
 
     public Integer getId() {

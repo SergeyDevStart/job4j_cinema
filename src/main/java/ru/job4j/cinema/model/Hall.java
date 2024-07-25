@@ -9,8 +9,7 @@ public class Hall {
     private int placeCount;
     private String description;
 
-    public Hall(Integer id, String name, int rowCount, int placeCount, String description) {
-        this.id = id;
+    public Hall(String name, int rowCount, int placeCount, String description) {
         this.name = name;
         this.rowCount = rowCount;
         this.placeCount = placeCount;
