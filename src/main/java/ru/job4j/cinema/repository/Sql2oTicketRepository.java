@@ -1,5 +1,7 @@
 package ru.job4j.cinema.repository;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.Ticket;
@@ -8,6 +10,7 @@ import java.util.Optional;
 
 @Repository
 public class Sql2oTicketRepository implements TicketRepository {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Sql2oTicketRepository.class);
     private final Sql2o sql2o;
 
     public Sql2oTicketRepository(Sql2o sql2o) {
@@ -28,6 +31,9 @@ public class Sql2oTicketRepository implements TicketRepository {
                     .addParameter("userId", ticket.getUserId());
             ticket.setId(query.executeUpdate().getKey(Integer.class));
             return Optional.of(ticket);
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
         }
+        return Optional.empty();
     }
 }
