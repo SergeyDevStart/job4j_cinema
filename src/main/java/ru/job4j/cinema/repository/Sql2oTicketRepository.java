@@ -36,4 +36,14 @@ public class Sql2oTicketRepository implements TicketRepository {
         }
         return Optional.empty();
     }
+
+    @Override
+    public Optional<Ticket> findById(Integer id) {
+        try (var connection = sql2o.open()) {
+            var query = connection.createQuery("SELECT * FROM tickets WHERE id = :id");
+            query.addParameter("id", id);
+            var ticket = query.setColumnMappings(Ticket.COLUMN_MAPPING).executeAndFetchFirst(Ticket.class);
+            return Optional.ofNullable(ticket);
+        }
+    }
 }
