@@ -5,9 +5,9 @@ insert into files(id, name, path)
 insert into files(id, name, path)
     values(3, 'leo.webp', 'files/leo.webp');
 insert into files(id, name, path)
-    values(4, 'lift.webp', 'films/lift.webp');
+    values(4, 'lift.webp', 'files/lift.webp');
 insert into files(id, name, path)
-    values(5, 'migration.webp', 'films/migration.webp');
+    values(5, 'migration.webp', 'files/migration.webp');
 insert into files(id, name, path)
     values(6, 'oppenheimer.webp', 'files/oppenheimer.webp');
 insert into files(id, name, path)

@@ -2,7 +2,6 @@ package ru.job4j.cinema.service;
 
 import org.springframework.stereotype.Service;
 import ru.job4j.cinema.dto.FilmSessionDto;
-import ru.job4j.cinema.repository.FilmRepository;
 import ru.job4j.cinema.repository.FilmSessionRepository;
 import ru.job4j.cinema.repository.HallRepository;
 
@@ -13,13 +12,13 @@ import java.util.stream.Collectors;
 @Service
 public class SimpleFilmSessionService implements FilmSessionService {
     private final FilmSessionRepository filmSessionRepository;
-    private final FilmRepository filmRepository;
+    private final FilmService filmService;
     private final HallRepository hallRepository;
 
-    public SimpleFilmSessionService(FilmSessionRepository filmSessionRepository, FilmRepository filmRepository,
+    public SimpleFilmSessionService(FilmSessionRepository filmSessionRepository, FilmService filmService,
                                     HallRepository hallRepository) {
         this.filmSessionRepository = filmSessionRepository;
-        this.filmRepository = filmRepository;
+        this.filmService = filmService;
         this.hallRepository = hallRepository;
     }
 
@@ -30,18 +29,18 @@ public class SimpleFilmSessionService implements FilmSessionService {
             return Optional.empty();
         }
         var filmSession = filmSessionOptional.get();
-        var film = filmRepository.findById(filmSession.getFilmId()).orElseThrow();
+        var filmDto = filmService.getFilmById(filmSession.getFilmId()).orElseThrow();
         var hall = hallRepository.findById(filmSession.getHallId()).orElseThrow();
-        var filmSessionDto = new FilmSessionDto(filmSession, film, hall);
+        var filmSessionDto = new FilmSessionDto(filmSession, filmDto, hall);
         return Optional.of(filmSessionDto);
     }
 
     @Override
     public Collection<FilmSessionDto> findAll() {
         return filmSessionRepository.findAll().stream().map(filmSession -> {
-            var film = filmRepository.findById(filmSession.getFilmId()).orElseThrow();
+            var filmDto = filmService.getFilmById(filmSession.getFilmId()).orElseThrow();
             var hall = hallRepository.findById(filmSession.getHallId()).orElseThrow();
-            return new FilmSessionDto(filmSession, film, hall);
+            return new FilmSessionDto(filmSession, filmDto, hall);
         }).collect(Collectors.toList());
     }
 }

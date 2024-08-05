@@ -15,8 +15,8 @@ public class FilmSession {
             "id", "id",
             "film_id", "filmId",
             "halls_id", "hallId",
-            "start_time", "start_time",
-            "end_time", "end_time",
+            "start_time", "startTime",
+            "end_time", "endTime",
             "price", "price"
     );
 

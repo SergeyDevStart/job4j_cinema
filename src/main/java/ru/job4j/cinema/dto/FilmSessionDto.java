@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public class FilmSessionDto {
     private Integer id;
-    private String filmName;
+    private FilmDto filmDto;
     private Integer hallId;
     private String hallName;
     private int hallRowCount;
@@ -17,9 +17,9 @@ public class FilmSessionDto {
     private LocalDateTime endTime;
     private int price;
 
-    public FilmSessionDto(FilmSession filmSession, Film film, Hall hall) {
+    public FilmSessionDto(FilmSession filmSession, FilmDto filmDto, Hall hall) {
         this.id = filmSession.getId();
-        this.filmName = film.getName();
+        this.filmDto = filmDto;
         this.hallId = hall.getId();
         this.hallName = hall.getName();
         this.hallRowCount = hall.getRowCount();
@@ -37,12 +37,12 @@ public class FilmSessionDto {
         this.id = id;
     }
 
-    public String getFilmName() {
-        return filmName;
+    public FilmDto getFilmDto() {
+        return filmDto;
     }
 
-    public void setFilmName(String filmName) {
-        this.filmName = filmName;
+    public void setFilmDto(FilmDto filmDto) {
+        this.filmDto = filmDto;
     }
 
     public Integer getHallId() {
