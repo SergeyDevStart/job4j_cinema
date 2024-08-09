@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <title>Сеансы</title>
+</head>
+<body>
+<div class="container-fluid p-0">
+    <header th:insert="~{blocks/header :: header}"></header>
+    <div class="container mt-2 mb-2">
+        <div class="row align-items-center" th:each="filmSession : ${filmSessions}">
+            <div class="col text-center m-1">
+                <img th:src="@{/files/{fileId}(fileId=*{filmSession.filmDto.fileId})}" class="w-50" alt="Image">
+            </div>
+            <div class="col m-1">
+                <ul>
+                    <li><div th:text="'Название: ' + ${filmSession.filmDto.name}"/></li>
+                    <li><div th:text="'Зал: ' + ${filmSession.hallName}"/></li>
+                    <li><div th:text="'Начало: ' + ${filmSession.startTime}"/></li>
+                    <li><div th:text="'Конец: ' + ${filmSession.endTime}"/></li>
+                    <li><div th:text="'Цена: ' + ${filmSession.price}"/></li>
+                </ul>
+                <a class="btn btn-success w-50" th:href="@{/sessions/{id} (id = ${filmSession.id})}">Купить билет</a>
+            </div>
+            <hr class="col-12" />
+        </div>
+    </div>
+    <footer th:insert="~{blocks/footer :: footer}"></footer>
+</div>
+</body>
+</html>
