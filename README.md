@@ -10,7 +10,7 @@ job4j_cinema - сервис по покупке билетов в кинотеа
 
 Данные сохраняются в БД.
 
-Технологии используемые в проекте:
+### Технологии используемые в проекте:
 - Spring boot 2.7.6
 - Tomcat
 - Thymeleaf
@@ -24,10 +24,56 @@ job4j_cinema - сервис по покупке билетов в кинотеа
 - AssertJ
 - Mockito
 - SLF4J
-- jcip-annotations 1.0
-- checkstyle-plugin 3.1.2
 
-Требования к окружению:
+### Требования к окружению:
 - Java 17
 - Maven 3.9.3
-- PostgreSQL 16
+- PostgreSQL 14
+
+## Запуск проекта:
+1. Создайте базу данных PostgreSQL:
+    ```sql
+    CREATE DATABASE cinema_db;
+    ```
+2. Склонируйте репозиторий:
+    ```bash
+    git clone https://github.com/SergeyDevStart/job4j_cinema
+    cd job4j_cinema
+    ```
+
+3. Соберите проект с помощью Maven:
+    ```bash
+    mvn clean install
+    ```
+
+4. Запустите приложение:
+    ```bash
+    mvn spring-boot:run
+    ```
+
+После успешного запуска приложение будет доступно по адресу: [http://localhost:8080](http://localhost:8080)
+
+## Взаимодействие с приложением:
+
+#### Регистрация/вход
+![](img/registerPage.png)
+![](img/loginPage.png)
+
+#### Главная страница
+![](img/index.png)
+
+#### Список фильмов
+![](img/films.png)
+
+#### Сеансы
+![](img/filmSessions.png)
+
+#### Страница покупки билета
+![](img/buyPage.png)
+
+#### Удачная/неудачная покупка билета
+![](img/buySuccess.png)
+![](img/buyNotSuccess.png)
+
+## Контакты
+![SergeyDevStart](https://github.com/SergeyDevStart)
