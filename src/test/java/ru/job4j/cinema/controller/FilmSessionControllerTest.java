@@ -7,7 +7,7 @@ import ru.job4j.cinema.dto.FilmDto;
 import ru.job4j.cinema.dto.FilmSessionDto;
 import ru.job4j.cinema.model.FilmSession;
 import ru.job4j.cinema.model.Hall;
-import ru.job4j.cinema.service.FilmSessionService;
+import ru.job4j.cinema.service.film_session.FilmSessionService;
 
 import java.util.List;
 import java.util.Optional;

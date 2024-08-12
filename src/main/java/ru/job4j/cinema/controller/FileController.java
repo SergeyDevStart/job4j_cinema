@@ -2,7 +2,7 @@ package ru.job4j.cinema.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.job4j.cinema.service.FileService;
+import ru.job4j.cinema.service.file.FileService;
 
 @RestController
 @RequestMapping("/files")

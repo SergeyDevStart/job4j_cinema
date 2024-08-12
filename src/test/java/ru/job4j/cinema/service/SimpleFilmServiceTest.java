@@ -5,7 +5,12 @@ import org.junit.jupiter.api.Test;
 import ru.job4j.cinema.dto.FilmDto;
 import ru.job4j.cinema.model.Film;
 import ru.job4j.cinema.model.Genre;
-import ru.job4j.cinema.repository.*;
+import ru.job4j.cinema.repository.film.FilmRepository;
+import ru.job4j.cinema.repository.film.Sql2oFilmRepository;
+import ru.job4j.cinema.repository.genre.GenreRepository;
+import ru.job4j.cinema.repository.genre.Sql2oGenreRepository;
+import ru.job4j.cinema.service.film.FilmService;
+import ru.job4j.cinema.service.film.SimpleFilmService;
 
 import java.util.Optional;
 

@@ -6,9 +6,8 @@ import org.mockito.ArgumentCaptor;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.ui.ConcurrentModel;
-import org.springframework.ui.Model;
 import ru.job4j.cinema.model.User;
-import ru.job4j.cinema.service.UserService;
+import ru.job4j.cinema.service.user.UserService;
 
 import java.util.Optional;
 
@@ -61,7 +60,7 @@ class UserControllerTest {
         var view = controller.register(new User(), model);
         var actualMessage = model.getAttribute("message");
 
-        assertThat(view).isEqualTo("errors/404");
+        assertThat(view).isEqualTo("errors/register");
         assertThat(actualMessage).isEqualTo("Пользователь с такой почтой уже существует.");
     }
 
